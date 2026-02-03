@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Julie 🩷</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+<style>
+body {
+    background-color: #ffc0cb;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 40px;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4.5em;
+    margin-top: 20px;
+
+    animation: fadeSlide 2s ease forwards, heartbeat 2s infinite ease-in-out;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #ff1493, #ff69b4, #ff1493);
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: gradientMove 4s infinite linear;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% }
+    100% { background-position: 200% }
+}
+
+@keyframes fadeSlide {
+    0% { opacity: 0; transform: translateY(-40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+}
+
+.letter {
+    background: #ffe4e1;
+    padding: 40px;
+    border-radius: 25px;
+    max-width: 1000px;
+    margin: 40px auto;
+
+    font-size: 1.5em;
+    line-height: 1.8;
+    text-align: left;
+
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 1s ease, opacity 1s ease;
+}
+
+.letter.open {
+    max-height: 3500px;
+    opacity: 1;
+}
+
+#toggleButton {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 20px 50px;
+    font-size: 1.8em;
+    border-radius: 40px;
+    cursor: pointer;
+
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+/* PHOTO GALLERY */
+.photo-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.tilted-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.tilted-gallery img {
+    width: 230px;
+    height: 230px;
+    object-fit: cover;
+    border: 6px solid white;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s;
+
+    border-radius: 30px;
+}
+
+.img1 { transform: rotate(-8deg); }
+.img2 { transform: rotate(6deg); }
+.img3 { transform: rotate(-5deg); }
+.img4 { transform: rotate(9deg); }
+
+.tilted-gallery img:hover {
+    transform: scale(1.1) rotate(0deg);
+}
+
+/* HEART BLAST */
+.heart {
+    position: fixed;
+    font-size: 24px;
+    animation: fly 1.5s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+.valentine-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.buttons button {
+    padding: 15px 40px;
+    font-size: 1.4em;
+    border: none;
+    border-radius: 30px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.yes {
+    background-color: #ff69b4;
+    color: white;
+}
+
+.no {
+    background-color: #ffb6c1;
+    color: white;
+}
+
+#response {
+    margin-top: 20px;
+    font-size: 1.6em;
+    color: #c71585;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<h1> <span class="gradient-text">Happy Valentine's Day, Julie!</span> 🐇🩷</h1>
+
+<button id="toggleButton" onclick="openLetter()">Open Letter 💌</button>
+
+<div class="letter" id="letter">
+
+<h2 style="text-align:center">A Love Letter for My TukTuk 🛺 💖</h2>
+
+<p>My babyy juliee🩷,</p>
+
+<p>
+Even though we are miles apart, you are always right here in my heart.  
+Every day you make me smile, laugh, and feel loved in ways I never imagined.
+</p>
+
+<p>
+You are my happiness, my safe place, and my cutest little “TukTuk🛺.”  
+No matter how far away we are, you will always be my favorite ride in life 🤌🥹
+</p>
+
+<p>
+I am proud of us, proud of our love, and proud that we stay strong through everything.
+</p>
+
+<p>
+One day there will be no more distance – just you and me together.
+</p>
+
+<p>Here are some of my favorite photos of my babyyy🤌🫶</p>
+
+<div class="photo-section">
+<div class="tilted-gallery">
+
+<img src="julie.jpg" class="img1">
+<img src="piyush1.jpg" class="img2">
+<img src="piyush2.jpg" class="img3">
+<img src="piyush3.jpg" class="img4">
+
+</div>
+</div>
+
+<p>
+Forever yours,<br>
+<b>Peyush 😭🫶</b>
+</p>
+
+<div class="valentine-section">
+
+<h2>So Julie... Will You Be My Valentine? 🩷</h2>
+
+<div class="buttons">
+    <button class="yes" onclick="yes()">Yes 🩷</button>
+    <button class="no" onclick="no()">No 💔</button>
+</div>
+
+<div id="response"></div>
+
+</div>
+
+</div>
+
+<script>
+function openLetter() {
+    var letter = document.getElementById("letter");
+    var button = document.getElementById("toggleButton");
+    var music = document.getElementById("music");
+
+    letter.classList.toggle("open");
+
+    if (letter.classList.contains("open")) {
+        button.innerHTML = "Close Letter 💌";
+        music.play();
+    } else {
+        button.innerHTML = "Open Letter 💌";
+        music.pause();
+    }
+}
+
+function yes() {
+    document.getElementById("response").innerHTML =
+    "YAYYYY! My TukTuk said YES! 🥹💖 Best Valentine everrrr!";
+
+    blastHearts();
+}
+
+function blastHearts() {
+    for (let i = 0; i < 250; i++) {
+        let heart = document.createElement("div");
+        heart.innerHTML = "💗";
+        heart.classList.add("heart");
+
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = Math.random() * window.innerHeight + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 1500);
+    }
+}
+
+function no() {
+    var noButton = document.querySelector(".no");
+
+    var x = Math.random() * (window.innerWidth - 150);
+    var y = Math.random() * (window.innerHeight - 100);
+
+    noButton.style.position = "fixed";
+    noButton.style.left = x + "px";
+    noButton.style.top = y + "px";
+}
+</script>
+
+</body>
+</html>
