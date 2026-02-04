@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Julie 🩷</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    background: linear-gradient(135deg, #ffd1dc, #ff9ecf);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding: 30px;
+    overflow-x: hidden;
+}
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4.4em;
+    margin-top: 20px;
+    color: #fff5fb;
+}
+
+.letter {
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.35);
+    padding: 40px;
+    border-radius: 30px;
+    max-width: 1000px;
+    margin: 40px auto;
+
+    font-size: 1.3em;
+    line-height: 1.9;
+    text-align: left;
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 1.2s ease;
+
+    position: relative;
+}
+
+.letter.open {
+    max-height: 6000px;
+    opacity: 1;
+}
+
+#toggleButton {
+    background: linear-gradient(135deg, #ff4da6, #ff007f);
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.6em;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+/* VOICE SECTION */
+
+.voice-section {
+    text-align: center;
+    margin-top: 35px;
+    padding: 30px;
+    background: rgba(255,255,255,0.55);
+    border-radius: 25px;
+}
+
+#voiceButton {
+    background: linear-gradient(135deg, #ff007f, #ff4da6);
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    font-size: 1.2em;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
+
+#voiceAudio {
+    margin-top: 10px;
+    width: 70%;
+    max-width: 400px;
+}
+
+/* PHOTO GALLERY */
+
+.tilted-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.tilted-gallery img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 25px;
+    border: 6px solid white;
+    transition: transform 0.25s ease;
+}
+
+.tilted-gallery img:hover {
+    transform: scale(1.12) rotate(0deg);
+}
+
+.img1 { transform: rotate(-5deg); }
+.img2 { transform: rotate(4deg); }
+.img3 { transform: rotate(-3deg); }
+.img4 { transform: rotate(6deg); }
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.buttons button {
+    padding: 15px 0;
+    width: 180px;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.yes {
+    background: linear-gradient(135deg, #ff007f, #ff4da6);
+    color: white;
+}
+
+.no {
+    background: #ffb6c1;
+    color: white;
+
+    position: relative;
+    transition: transform 0.2s ease-out;
+}
+
+#response {
+    margin-top: 25px;
+    font-size: 1.6em;
+    color: #c71585;
+}
+
+#funnyMessage {
+    margin-top: 15px;
+    font-size: 1.4em;
+    color: #ff007f;
+    font-weight: bold;
+}
+
+/* HEART ANIMATION */
+
+.heart {
+    position: fixed;
+    font-size: 24px;
+    animation: fly 2s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-400px) scale(1.5);
+        opacity: 0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACKGROUND MUSIC -->
+<audio id="bgMusic" loop autoplay>
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<h1>Happy Valentine's Day, Julie! 🐇🩷</h1>
+
+<button id="toggleButton" onclick="openLetter()">Open Letter 💌</button>
+
+<div class="letter" id="letter">
+
+<h2 style="text-align:center">A Love Letter for My TukTuk 🛺 💖</h2>
+
+<p>My babyy Juliee 🩷,</p>
+
+<p>
+Even though we are miles apart, you are always right here in my heart.  
+Distance has never felt scary because I know at the end of it, there is YOU waiting for me.
+</p>
+
+<p>
+Every single day you make my life brighter just by existing.  
+Your voice, your laugh, and your cute little habits mean everything to me.
+</p>
+
+<p>
+You are not just my girlfriend, you are my happiness, my peace, my comfort, and my favorite person in this whole world.
+</p>
+
+<p>
+Being far away from you is hard, but loving you is the easiest thing I have ever done.
+</p>
+
+<p>
+You will always be my cutest little TukTuk 🛺 and my favorite ride in life 🤌🩷
+</p>
+
+<!-- VOICE MESSAGE SECTION -->
+
+<div class="voice-section">
+    <h2>💌 A Special Message For You</h2>
+
+    <button id="voiceButton" onclick="playVoice()">
+        Play My Little Voice Message 🎧
+    </button>
+
+    <audio id="voiceAudio" controls preload="auto">
+        <source src="voice.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<div class="tilted-gallery">
+    <img src="julie.jpg" class="img1">
+    <img src="piyush1.jpg" class="img2">
+    <img src="piyush2.jpg" class="img3">
+    <img src="piyush3.jpg" class="img4">
+</div>
+
+<h2>So Julie... Will You Be My Valentine? 🩷</h2>
+
+<div class="buttons">
+    <button class="yes" onclick="yes()">Yes 🩷</button>
+    <button class="no" onclick="no()">No 💔</button>
+</div>
+
+<div id="response"></div>
+<div id="funnyMessage"></div>
+
+</div>
+
+<script>
+
+// AUTO PLAY MUSIC
+window.onload = function() {
+    var music = document.getElementById("bgMusic");
+
+    music.play().catch(() => {
+        document.body.addEventListener("click", () => {
+            music.play();
+        }, { once: true });
+    });
+};
+
+// SMOOTH VOLUME FADE FUNCTION
+function fadeVolume(audio, targetVolume) {
+    let fadeInterval = setInterval(() => {
+        if (audio.volume < targetVolume) {
+            audio.volume = Math.min(audio.volume + 0.05, targetVolume);
+        } else if (audio.volume > targetVolume) {
+            audio.volume = Math.max(audio.volume - 0.05, targetVolume);
+        } else {
+            clearInterval(fadeInterval);
+        }
+    }, 100);
+}
+
+// PLAY VOICE WITH SMART MUSIC CONTROL
+function playVoice() {
+    var voice = document.getElementById("voiceAudio");
+    var music = document.getElementById("bgMusic");
+
+    voice.pause();
+    voice.currentTime = 0;
+
+    fadeVolume(music, 0.2);
+
+    voice.play().catch(() => {
+        alert("Tap again to play voice message 💖");
+    });
+
+    voice.onended = function() {
+        fadeVolume(music, 1.0);
+    };
+}
+
+function openLetter() {
+    var letter = document.getElementById("letter");
+    var btn = document.getElementById("toggleButton");
+
+    letter.classList.toggle("open");
+
+    btn.innerHTML = letter.classList.contains("open")
+        ? "Close Letter ❌"
+        : "Open Letter 💌";
+}
+
+function createHearts() {
+    const colors = ["💗", "🩷"];
+
+    for (let i = 0; i < 40; i++) {
+        let heart = document.createElement("div");
+        heart.classList.add("heart");
+
+        heart.innerHTML = colors[Math.floor(Math.random() * colors.length)];
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = Math.random() * 100 + "vh";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 2000);
+    }
+}
+
+function yes() {
+    document.getElementById("response").innerHTML =
+    "YAYYYY! My TukTuk said YES! 🥹💖 Best Valentine everrrr!";
+
+    createHearts();
+}
+
+let clickCount = 0;
+
+const funnyTexts = [
+    "Umm… why are you clicking No, babe? 🤨",
+    "Again? REALLY Julie?? 😭",
+    "Babe that button is not for you 💀",
+    "Stop playing hard to get, babe 😭",
+    "Every No hurts my soul a little more 🤌😭🫶"
+];
+
+function no() {
+    var btn = document.querySelector(".no");
+
+    var maxX = 500;
+    var maxY = 50;
+
+    var moveX = (Math.random() * maxX) - (maxX / 4);
+    var moveY = (Math.random() * maxY) - (maxY / 2);
+
+    btn.style.transform = `translate(${moveX}px, ${moveY}px)`;
+
+    document.getElementById("funnyMessage").innerHTML =
+        funnyTexts[clickCount % funnyTexts.length];
+
+    clickCount++;
+}
+
+</script>
+
+</body>
+</html>
