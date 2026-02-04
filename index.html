@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Julie 🩷</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+body {
+    background: linear-gradient(135deg, #ffd1dc, #ff9ecf);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    padding: 30px;
+}
+
+/* ---- AESTHETIC CURSIVE NEON HEADER ---- */
+
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4.4em;
+    margin-top: 20px;
+
+    color: #fff5fb;
+
+    text-shadow: 
+        0 0 8px #ffd6ec,
+        0 0 16px #ffb3d9,
+        0 0 24px #ff80bf,
+        0 0 32px #ff4da6;
+
+    letter-spacing: 2px;
+
+    animation: softNeon 2s infinite alternate ease-in-out;
+}
+
+@keyframes softNeon {
+    from {
+        text-shadow: 
+        0 0 8px #ffe6f2,
+        0 0 16px #ffb3d9,
+        0 0 24px #ff80bf;
+    }
+    to {
+        text-shadow: 
+        0 0 12px #ffffff,
+        0 0 20px #ffcce6,
+        0 0 30px #ff99cc,
+        0 0 40px #ff66b3;
+    }
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* LETTER BOX */
+
+.letter {
+    backdrop-filter: blur(10px);
+    background: rgba(255,255,255,0.35);
+    padding: 40px;
+    border-radius: 30px;
+    max-width: 1000px;
+    margin: 40px auto;
+
+    font-size: 1.3em;
+    line-height: 1.9;
+    text-align: left;
+
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 1.2s ease;
+}
+
+.letter.open {
+    max-height: 6000px;
+    opacity: 1;
+}
+
+/* ---- BUTTON HOVER POP EFFECT (NEW) ---- */
+
+button {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* TOGGLE BUTTON */
+
+#toggleButton {
+    background: linear-gradient(135deg, #ff4da6, #ff007f);
+    color: white;
+    border: none;
+    padding: 18px 50px;
+    font-size: 1.6em;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+/* VOICE MESSAGE */
+
+.voice-section {
+    text-align: center;
+    margin-top: 35px;
+    padding: 25px;
+    background: rgba(255,255,255,0.45);
+    border-radius: 25px;
+}
+
+#voiceButton {
+    background: linear-gradient(135deg, #ff007f, #ff4da6);
+    color: white;
+    border: none;
+    padding: 16px 40px;
+    font-size: 1.3em;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+audio {
+    margin-top: 15px;
+    width: 80%;
+}
+
+/* PHOTO GALLERY */
+
+.tilted-gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+    margin-top: 25px;
+}
+
+/* ---- PHOTO HOVER POP EFFECT (NEW) ---- */
+
+.tilted-gallery img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 25px;
+    border: 6px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tilted-gallery img:hover {
+    transform: scale(1.12) rotate(0deg);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.img1 { transform: rotate(-5deg); }
+.img2 { transform: rotate(4deg); }
+.img3 { transform: rotate(-3deg); }
+.img4 { transform: rotate(6deg); }
+
+/* BUTTONS */
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.buttons button {
+    padding: 15px 0;
+    width: 180px;
+    font-size: 1.3em;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.yes {
+    background: linear-gradient(135deg, #ff007f, #ff4da6);
+    color: white;
+}
+
+/* SMOOTH NO BUTTON */
+
+.no {
+    background: #ffb6c1;
+    color: white;
+    position: relative;
+
+    transition: all 0.2s ease-out, transform 0.1s ease;
+
+    z-index: 9999;
+}
+
+.no:active {
+    transform: scale(0.9);
+}
+
+#response {
+    margin-top: 25px;
+    font-size: 1.6em;
+    color: #c71585;
+}
+
+#funnyMessage {
+    margin-top: 15px;
+    font-size: 1.4em;
+    color: #ff007f;
+    font-weight: bold;
+    min-height: 40px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Happy Valentine's Day, Julie! 🐇🩷</h1>
+
+<button id="toggleButton" onclick="openLetter()">Open Letter 💌</button>
+
+<div class="letter" id="letter">
+
+<h2 style="text-align:center">A Love Letter for My TukTuk 🛺 💖</h2>
+
+<p>My babyy Juliee 🩷,</p>
+
+<p>
+Even though we are miles apart, you are always right here in my heart.  
+Distance has never felt scary because I know at the end of it, there is YOU waiting for me.
+</p>
+
+<p>
+Every single day you make my life brighter just by existing.  
+Your voice, your laugh, and your cute little habits mean everything to me.
+</p>
+
+<p>
+You are not just my girlfriend, you are my happiness, my peace, my comfort, and my favorite person in this whole world.
+</p>
+
+<p>
+Being far away from you is hard, but loving you is the easiest thing I have ever done.
+</p>
+
+<p>
+I dream about the day we won’t need phone screens anymore.
+</p>
+
+<p>
+You will always be my cutest little TukTuk 🛺 and my favorite ride in life 🤌🩷
+</p>
+
+<div class="voice-section">
+    <h2>💌 A Special Message For You</h2>
+
+    <button id="voiceButton" onclick="playVoice()">
+        Play My Little Voice Message 🎧
+    </button>
+
+    <audio id="voiceAudio" controls>
+        <source src="voice.mp3" type="audio/mpeg">
+    </audio>
+</div>
+
+<div style="margin-top:30px; font-size:1.4em; text-align:center;">
+Here are some of my favorite photos of yours 🤌🫶
+</div>
+
+<div class="tilted-gallery">
+    <img src="julie.jpg" class="img1">
+    <img src="piyush1.jpg" class="img2">
+    <img src="piyush2.jpg" class="img3">
+    <img src="piyush3.jpg" class="img4">
+</div>
+
+<p style="text-align:center; margin-top:30px;">
+Forever yours,<br>
+<b>Piyush 😭🫶</b>
+</p>
+
+<div class="valentine-section">
+
+<h2>So Julie... Will You Be My Valentine? 🩷</h2>
+
+<div class="buttons">
+    <button class="yes" onclick="yes()">Yes 🩷</button>
+    <button class="no" onclick="no()">No 💔</button>
+</div>
+
+<div id="response"></div>
+<div id="funnyMessage"></div>
+
+</div>
+
+</div>
+
+<script>
+
+function openLetter() {
+    document.getElementById("letter").classList.toggle("open");
+}
+
+function playVoice() {
+    document.getElementById("voiceAudio").play();
+}
+
+function yes() {
+    document.getElementById("response").innerHTML =
+    "YAYYYY! My TukTuk said YES! 🥹💖 Best Valentine everrrr!";
+}
+
+let clickCount = 0;
+
+const funnyTexts = [
+    "Umm… why are you clicking No, babe? 🤨",
+    "Again? REALLY Julie?? 😭",
+    "Babe that button is not for you 💀",
+    "Stop playing hard to get, babe 😭",
+    "Every No hurts my soul a little more 🤌😭🫶",
+    "I’m literally on my knees here Julie 🥹🤌🩷",
+    "My love story is buffering because of you 😭🫶"
+];
+
+function no() {
+    var btn = document.querySelector(".no");
+
+    var maxX = window.innerWidth - 200;
+    var maxY = window.innerHeight - 120;
+
+    var x = Math.random() * maxX;
+    var y = Math.random() * maxY;
+
+    btn.style.position = "fixed";
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
+
+    btn.style.transform = "scale(1.1)";
+    setTimeout(() => btn.style.transform = "scale(1)", 120);
+
+    document.getElementById("funnyMessage").innerHTML =
+        funnyTexts[clickCount % funnyTexts.length];
+
+    clickCount++;
+}
+
+</script>
+
+</body>
+</html>
